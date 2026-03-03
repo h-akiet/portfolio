@@ -1,6 +1,6 @@
 import { Container, Row, Nav, Tab, Col } from "react-bootstrap";
-// import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-img1.png";
+import { ProjectCard } from "./ProjectCard";
+import projImg1 from "../assets/img/ecommerce.png";
 import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
@@ -12,34 +12,25 @@ export const Project = () => {
 
     const projects = [
         {
-            title: "Business Startup",
-            description: "Design & Development",
+            title: "Cosmetics E-Commerce Platform",
+            description: `Multi-vendor, supporting product, order, and vendor management with payment integration.`,
+            tech: ["Spring Boot", "Java", "SQL Server", "JPA", "MVC"],
             imgUrl: projImg1,
+            githubUrl: "https://github.com/h-akiet/OneShop-Website.git",
         },
         {
-            title: "Business Startup",
-            description: "Design & Development",
+            title: "Desktop App",
+            description: `Implemented store operations including sales management, promotions, inventory tracking, and employee management...`,
+            tech: ["Winform", "C#", "SQL Server"],
             imgUrl: projImg2,
+            githubUrl: "https://github.com/h-akiet/OneShop-Website.git",
         },
         {
-            title: "Business Startup",
-            description: "Design & Development",
+            title: "Web API",
+            description: `A SOLID-based Web API for sales management featuring RESTful endpoints, EF Core integration for high-performance data handling, and Swagger UI for automated documentation and testing.`,
+            tech: [".Net", "C#", "SQL Server", "EF Core", "Solid"],
             imgUrl: projImg3,
-        },
-        {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg1,
-        },
-        {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg2,
-        },
-        {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg3,
+            githubUrl: "https://github.com/h-akiet/E-Shop.git",
         },
     ];
 
@@ -54,22 +45,25 @@ export const Project = () => {
                                     <h2 className="title">
                                         Projects
                                     </h2>
-                                    <Tab.Container id="projects-tabs" defaultActiveKey="first">
+                                    <p>The following projects were developed during my academic studies, where I worked primarily as a Backend Developer.
+                                        I focused on system architecture, database design, authentication, and API development.</p>
+                                    {/* <Tab.Container id="projects-tabs" defaultActiveKey="first">
                                         <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                                             <Nav.Item>
-                                                <Nav.Link eventKey="first">Tab 1</Nav.Link>
+                                                <Nav.Link eventKey="first">E-Commerce</Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
-                                                <Nav.Link eventKey="second">Tab 2</Nav.Link>
+                                                <Nav.Link eventKey="second">Management System</Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
-                                                <Nav.Link eventKey="third">Tab 3</Nav.Link>
+                                                <Nav.Link eventKey="third">RESTful API</Nav.Link>
                                             </Nav.Item>
                                         </Nav>
                                         <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
                                             <Tab.Pane eventKey="first">
                                                 <Row>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, accusamus.</p>
+                                                    <p>OneShop is a multi-vendor e-commerce web application that connects sellers and customers, providing a wide range of cosmetic products. The system supports product management, order processing, user and vendor management, promotions, shipping, and payment integration.</p>
+
                                                 </Row>
                                             </Tab.Pane>
                                             <Tab.Pane eventKey="second">
@@ -83,7 +77,21 @@ export const Project = () => {
                                                 </Row>
                                             </Tab.Pane>
                                         </Tab.Content>
-                                    </Tab.Container>
+                                    </Tab.Container> */}
+                                    <div id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
+                                        <Row>
+                                            {
+                                                projects.map((project, index) => {
+                                                    return (
+                                                        <ProjectCard
+                                                            key={index}
+                                                            {...project}
+                                                        />
+                                                    )
+                                                })
+                                            }
+                                        </Row>
+                                    </div>
                                 </div>}
                         </TrackVisibility>
                     </Col>

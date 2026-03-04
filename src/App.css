@@ -543,10 +543,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   overflow-y: hidden;
   white-space: nowrap;
   margin: auto 8px 0 8px;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .tech-stack::-webkit-scrollbar {
   display: none;
+  
 }
 
 .tech-badge {

@@ -1,34 +1,36 @@
 import { Container, Row, Col } from "react-bootstrap";
-import meter95 from '../assets/img/95.svg';
-import meter80 from '../assets/img/80.svg';
-import meter90 from '../assets/img/90.svg';
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import arrow1 from '../assets/img/arrow1.svg';
-import arrow2 from '../assets/img/arrow2.svg';
-import colorSharp from "../assets/img/color-sharp.png"
+import colorSharp from "../assets/img/color-sharp.png";
+import csharp from '../assets/img/csharp.svg';
+import cpp from '../assets/img/c-plusplus.svg';
+import js from '../assets/img/javascript.svg';
+import html from '../assets/img/html5.svg';
+import css from '../assets/img/css.svg';
+import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+import {SkillGroup} from "./SkillGroup";
+
+
 
 
 export const Skills = () => {
-    const responsive = {
-        superLargeDesktop: {
-            // the naming can be any, depends on you.
-            breakpoint: { max: 4000, min: 3000 },
-            items: 5
-        },
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 3
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1
-        }
-    };
+    const languages = [
+        { name: "C#", level: "90%" },
+        { name: "C++", level: "90%" },
+        { name: "JavaScript", level: "70%" },
+        { name: "HTML/CSS", level: "80%" },
+    ];
+
+    const database = [
+        { name: "SQL Server", level: "90%" },
+    ];
+
+
+    const other = [
+        { name: "Spring Boot", level: "80%" },
+        { name: ".Net", level: "85%" },
+        { name: "Git/Github", level: "90%" },
+    ];
 
     return (
         <section className="skill" id="skills">
@@ -38,24 +40,17 @@ export const Skills = () => {
                         <div className="skill-bx wow zoomIn">
                             <h2 className="title">Skills</h2>
                             <p>Mastering frontend basics and engineering principles for clean, scalable code</p>
-                            <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
-                                <div className="item">
-                                    <img src={meter80} alt="Image" />
-                                    <h5>HTML/CSS</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter90} alt="Image" />
-                                    <h5>C#</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter90} alt="Image" />
-                                    <h5>SQL Server</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter80} alt="Image" />
-                                    <h5>Git/GitHub</h5>
-                                </div>
-                            </Carousel>
+                            <div className="skills-grid-container">
+
+                                <SkillGroup title="Languages" skills={languages} />
+                                <SkillGroup title="Databases" skills={database} />
+                                <SkillGroup title="Other" skills={other} />
+
+
+                            </div>
+                            {/* <div className="test-img">
+                                <img src={test} alt="" />
+                            </div> */}
                         </div>
                     </div>
                 </div>

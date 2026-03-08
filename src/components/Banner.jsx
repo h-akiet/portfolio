@@ -11,7 +11,7 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "Software Engineer", "Web Designer", "UI/UX Designer" ];
+  const toRotate = [ "Software Engineer", "Web Developer"];
   const period = 2000;
 
   useEffect(() => {
@@ -47,11 +47,15 @@ export const Banner = () => {
     }
   }
 
+  const scrollToContact = () => {
+  document.getElementById('connect').scrollIntoView({ behavior: 'smooth' });
+};
+
   return (
     <section className="banner" id="home">
       <Container>
         <Row className="align-items-center">
-          <Col xs={12} md={6} xl={5}>
+          <Col xs={12} md={6} xl={5} className="banner-logo">
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
@@ -66,7 +70,7 @@ export const Banner = () => {
                 <span className="tagline">Welcome to my Portfolio</span>
                 <h1>{`Hi! I'm Kiet`} <span className="txt-rotate" dataperiod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
                   <p>Technology is the tool, Passion is the driver. As a software engineer, I am dedicated to learning and applying technical advancements to solve complex problems through innovation.</p>
-                <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                <button onClick={scrollToContact}>Let’s Connect <ArrowRightCircle size={25} /></button>
               </div>}
             </TrackVisibility>
           </Col>  

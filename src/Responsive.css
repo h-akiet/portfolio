@@ -1,0 +1,138 @@
+@media (min-width: 1440px) {
+    .proj-normal {
+        display: flex !important;
+    }
+
+    .proj-mobile {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1439px) {
+    .proj-normal {
+        display: none !important;
+    }
+
+    .proj-mobile {
+        display: flex !important;
+    }
+
+    @media(max-width: 768px) {
+        .banner-logo {
+            display: none;
+        }
+
+        .contact-img {
+            display: none;
+        }
+
+        .col-md-6 {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+
+        .contact h2 {
+            text-align: center;
+        }
+
+        .contact form button {
+            display: block;
+            margin: 30px auto 0 auto;
+        }
+
+        .skills-grid-container {
+            grid-template-columns: 1fr;
+            padding-right: 10px;
+        }
+
+        
+        .skills-grid-container::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .skills-grid-container::-webkit-scrollbar-thumb {
+            background: #454e56;
+            border-radius: 10px;
+        }
+    }
+
+    .mb-5 {
+        margin-bottom: 0 !important;
+    }
+
+    .banner {
+        padding: 110px 0 100px 0;
+    }
+
+
+    .proj-bx {
+        width: 108%;
+        padding: 15px;
+    }
+
+    .proj-title {
+        border-bottom: 1px solid #fff;
+        padding-bottom: 4px;
+
+    }
+
+
+    .proj-bx p {
+        margin: 14px 0 21px 9px;
+        letter-spacing: 0.8px;
+        line-height: 1.5rem;
+    }
+
+
+    .proj-content {
+        text-align: left;
+        margin-top: 20px;
+    }
+
+    .github-btn {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        text-decoration: none;
+        color: #fff;
+        justify-content: right;
+        margin-top: 8px;
+    }
+
+    .github-btn p {
+        margin: 20px 0 20px 0;
+        font-size: 1rem;
+    }
+
+    .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        overflow-x: visible;
+        overflow-y: visible;
+        white-space: normal;
+        margin: 0 8px 8px 8px;
+
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .tech-stack::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tech-badge {
+        font-size: 13px;
+        border-radius: 999px;
+        background: #0f1a2b;
+        border: 1px solid #1f2a40;
+        color: #8ab4f8;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+
+    .tech-badge:hover {
+        background: rgba(0, 153, 255, 0.2);
+        transform: translateY(-2px);
+    }
+}

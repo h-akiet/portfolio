@@ -21,7 +21,6 @@ export const ProjectCard = ({
           <div className="proj-txtx">
             <h4>{title}</h4>
             <span>{description}</span>
-
             <div className="tech-stack">
               {tech.map((item, index) => (
                 <span key={index} className="tech-badge">

@@ -17,13 +17,33 @@
         display: flex !important;
     }
 
+    .contact-info {
+        margin-bottom: 16px;
+        padding-left: 0;
+    }
+
+    .contact-info a {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: #D9D9D9;
+        text-decoration: none;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 14px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0 0 4px 0;
+        border-radius: 8px;
+        border: 1px solid transparent;
+    }
+
+
     @media(max-width: 768px) {
         nav.navbar {
             padding: 0px 0;
             background-color: #121212;
         }
 
-        .navbar-brand img{
+        .navbar-brand img {
             width: 150%;
         }
 

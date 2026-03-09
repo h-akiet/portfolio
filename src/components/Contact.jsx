@@ -4,6 +4,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { Linkedin, Facebook, Github, Envelope, ArrowRightCircle } from 'react-bootstrap-icons';
+
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
@@ -65,18 +67,31 @@ export const Contact = () => {
     <section className="contact" id="connect">
       <Container>
         <Row className="align-items-center">
-          <Col size={12} md={6} className="contact-img">
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <img className={isVisible ? "animate__animated animate__zoomIn" : ""} src={contactImg} alt="Contact Us" />
-              }
-            </TrackVisibility>
+          <h2 className="title">Get In Touch</h2>
+          <Col size={12} md={6} className="">
+            <div className="contact-info">
+              <a href="https://web.facebook.com/share/18DSvWncLX/?mibextid=wwXIfr&_rdc=1&_rdr">
+                <Facebook size={25} color="white" />
+                <span>Facebook</span>
+              </a>
+              <a href="https://www.linkedin.com/in/nguyenhoanganhkiet">
+                <Linkedin size={25} color="white" />
+                <span>linkedin.com/in/nguyenhoanganhkiet</span>
+              </a>
+              <a href="https://github.com/h-akiet">
+                <Github size={25} color="white" />
+                <span>github.com/h-akiet</span>
+              </a>
+              <a href="mailto:nguyenhoanganhkiettg2005@gmail.com">
+                <Envelope size={25} color="white" />
+                <span>nguyenhoanganhkiettg2005@gmail.com</span>
+              </a>
+            </div>
           </Col>
           <Col size={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <h2>Get In Touch</h2>
                   <form onSubmit={handleSubmit}>
                     <Row>
                       <Col size={12} sm={6} className="px-1">

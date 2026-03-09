@@ -23,6 +23,10 @@
             background-color: #121212;
         }
 
+        .navbar-brand img{
+            width: 150%;
+        }
+
         .banner-logo {
             display: none;
         }
@@ -45,7 +49,7 @@
             margin: 30px auto 0 auto;
         }
 
-        .contact-info{
+        .contact-info {
             margin-bottom: 16px;
         }
 
@@ -76,6 +80,10 @@
         .skills-grid-container::-webkit-scrollbar-thumb {
             background: #454e56;
             border-radius: 10px;
+        }
+
+        .desktop-hide {
+            display: block !important;
         }
     }
 

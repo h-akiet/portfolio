@@ -31,7 +31,6 @@ export const ProjectCardMobile = ({
               rel="noopener noreferrer" className="github-btn"><FontAwesomeIcon icon={faGithub}/><p>Github</p></a>
           </div>
         </div>
-
       </Col>
     </Row>
   );

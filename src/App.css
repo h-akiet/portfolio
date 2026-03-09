@@ -30,6 +30,7 @@
 }
 
 html {
+  font-size: 16px;
   scroll-behavior: smooth;
   scroll-padding-top: 75px;
 }
@@ -114,10 +115,13 @@ p.danger {
   left: calc(4% + -20px);
 }
 
-.align-items-center{
+.align-items-center {
   align-items: center;
 }
 
+.desktop-hide {
+  display: none !important;
+}
 
 /* Navbar */
 nav.navbar {
@@ -633,6 +637,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 100%;
 }
 
+.proj-bx {
+  display: flex;
+
+}
+
 .project p {
   margin: 14px 0 75px 0;
   font-size: 18px;
@@ -717,36 +726,83 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   z-index: -4;
 }
 
+.proj-bx {
+  width: 100%;
+  padding: 15px;
+}
+
+.proj-title {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 4px;
+
+}
+
+
+.proj-bx p {
+  margin: 14px 0 21px 9px;
+  letter-spacing: 0.8px;
+  line-height: 1.5rem;
+}
+
+
+.proj-content {
+  width: 100%;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.github{
+  width: 100%;
+  text-align: right;
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: #fff;
+  justify-content: right;
+  margin-top: 8px;
+}
+
+.github-btn p {
+  margin: 20px 0 20px 0;
+  font-size: 1rem;
+}
+
 .tech-stack {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  margin: auto 8px 0 8px;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  overflow-x: visible;
+  overflow-y: visible;
+  white-space: normal;
+  margin: 0 8px 8px 8px;
+
+  mask-image: none;
+  -webkit-mask-image: none;
 }
 
 .tech-stack::-webkit-scrollbar {
   display: none;
-
 }
 
 .tech-badge {
-  padding: 6px 14px;
-  font-size: 13px;
+  font-size: 16px;
+  padding: 0 8px;
   border-radius: 999px;
   background: #0f1a2b;
   border: 1px solid #1f2a40;
   color: #8ab4f8;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
 }
 
 .tech-badge:hover {
   background: rgba(0, 153, 255, 0.2);
   transform: translateY(-2px);
 }
-
 
 /* contact */
 .contact {
@@ -838,16 +894,21 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .contact-info {
   display: flex;
-  flex-direction: column; /* Xếp chồng các hàng lên nhau */
-  gap: 15px;              /* Khoảng cách giữa các hàng */
+  flex-direction: column;
+  /* Xếp chồng các hàng lên nhau */
+  gap: 15px;
+  /* Khoảng cách giữa các hàng */
   padding: 10px;
 }
 
 .contact-info a {
   display: flex;
-  align-items: center;      /* Căn giữa icon và chữ theo chiều dọc */
-  gap: 15px;               /* Khoảng cách giữa icon và chữ */
-  color: #D9D9D9;          /* Màu xám nhạt từ Figma */
+  align-items: center;
+  /* Căn giữa icon và chữ theo chiều dọc */
+  gap: 15px;
+  /* Khoảng cách giữa icon và chữ */
+  color: #D9D9D9;
+  /* Màu xám nhạt từ Figma */
   text-decoration: none;
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.2rem;
@@ -860,20 +921,24 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /* Hiệu ứng khi di chuột vào hoặc chạm trên mobile */
 .contact-info a:hover {
   color: #ffffff;
-  background: rgba(105, 59, 147, 0.1); /* Nền tím mờ nhẹ */
+  background: rgba(105, 59, 147, 0.1);
+  /* Nền tím mờ nhẹ */
   border-color: rgba(105, 59, 147, 0.5);
-  transform: translateX(5px);         /* Nhích nhẹ sang phải */
+  transform: translateX(5px);
+  /* Nhích nhẹ sang phải */
   box-shadow: 0 0 15px rgba(105, 59, 147, 0.2);
 }
 
 .contact-info a svg {
-  color: #693B93; /* Màu tím accent cho icon */
+  color: #693B93;
+  /* Màu tím accent cho icon */
   transition: transform 0.3s ease;
 }
 
 .contact-info a:hover svg {
   transform: scale(1.1);
-  color: #ffffff; /* Icon sáng lên khi hover */
+  color: #ffffff;
+  /* Icon sáng lên khi hover */
 }
 
 /* footer */

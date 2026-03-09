@@ -1,16 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { ChevronDown } from 'lucide-react';
 
 export const SkillGroup = ({ title, skills }) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(window.innerWidth > 768);
+
+  
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768) {
+                setIsOpen(true);
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const toggleOpen = () => {
+        if (window.innerWidth <= 768) {
+            setIsOpen(!isOpen);
+        }
+    };
 
     return (
         <div className={`item ${isOpen ? 'active' : ''}`}>
-            {/* 1. Trạng thái bình thường (Header + Tags) */}
-            <div className="item-normal" onClick={() => setIsOpen(!isOpen)}>
+            <div className="item-normal" onClick={toggleOpen}>
                 <div className="item-header">
                     {title}
-                    <ChevronDown className={`arrow-icon ${isOpen ? 'rotated' : ''}`} />
+                    <ChevronDown className={`arrow-icon ${isOpen ? 'rotated' : ''} desktop-hide`} />
                 </div>
 
                 {!isOpen && (
@@ -22,7 +38,6 @@ export const SkillGroup = ({ title, skills }) => {
                 )}
 
             </div>
-
             <div className={`skill-details ${isOpen ? 'show' : ''}`}>
                 {skills.map((skill, index) => (
                     <div className="progress-wrapper" key={index}>

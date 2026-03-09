@@ -1,4 +1,6 @@
-import { Col } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export const ProjectCard = ({
   title,
@@ -8,29 +10,33 @@ export const ProjectCard = ({
   githubUrl
 }) => {
   return (
-    <Col xs={12} sm={6} md={4}>
-      <a
-        href={githubUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ color: "inherit", textDecoration: "none" }}
-      >
-        <div className="proj-imgbx">
-          <img src={imgUrl} alt={title} />
+    <Row className="mb-5 align-items-center">
+      <Col size={12} className="px-0">
+        <div className="proj-bx">
+          <div className="proj-content">
+            <div className="proj-title">
+            <h4><strong>{title}</strong></h4>
+            </div>
+            <div className="desc">
 
-          <div className="proj-txtx">
-            <h4>{title}</h4>
-            <span>{description}</span>
+            <p>{description}</p>
             <div className="tech-stack">
-              {tech.map((item, index) => (
+              {tech && tech.map((item, index) => (
                 <span key={index} className="tech-badge">
                   {item}
                 </span>
               ))}
             </div>
+            <div className="github">
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer" className="github-btn"><FontAwesomeIcon icon={faGithub}/><p>Github</p></a>
+            </div>
+            </div>
           </div>
         </div>
-      </a>
-    </Col>
+      </Col>
+    </Row>
   );
 };

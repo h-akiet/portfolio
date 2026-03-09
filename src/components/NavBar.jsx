@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from '../assets/img/logo.png';
 import navIcon1 from '../assets/img/nav-icon1.svg';
@@ -31,9 +31,27 @@ export const NavBar = () => {
     setActiveLink(value);
   }
 
+  const [expanded, setExpanded] = useState(false);
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setExpanded(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <Router>
-      <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
+      <Navbar 
+      collapseOnSelect
+      ref={navRef} 
+      expanded={expanded} 
+      onToggle={() => setExpanded(!expanded)} 
+      expand="lg" className={scrolled ? "scrolled" : ""}>
         <Container>
           <Navbar.Brand href="/">
             <img src={logo} alt="Logo" />

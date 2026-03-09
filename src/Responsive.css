@@ -17,6 +17,7 @@
         display: flex !important;
     }
 
+
     .contact-info {
         margin-bottom: 16px;
         padding-left: 0;
@@ -86,6 +87,11 @@
             padding: 0 0 4px 0;
             border-radius: 8px;
             border: 1px solid transparent;
+        }
+
+        .contact form input,
+        .contact form textarea {
+            width: 90%;
         }
 
         .skills-grid-container {

@@ -751,7 +751,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-top: 20px;
 }
 
-.github{
+.github {
   width: 100%;
   text-align: right;
 }
@@ -820,7 +820,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .contact form input,
 .contact form textarea {
-  width: 100%;
+  width: 90%;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -831,6 +831,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 18px;
   letter-spacing: 0.8px;
   transition: 0.3s ease-in-out;
+}
+
+.contact .px-1{
+    display: block;
+    text-align: center;
 }
 
 .contact form input:focus,
@@ -895,9 +900,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .contact-info {
   display: flex;
   flex-direction: column;
-  /* Xếp chồng các hàng lên nhau */
   gap: 15px;
-  /* Khoảng cách giữa các hàng */
   padding: 10px;
 }
 

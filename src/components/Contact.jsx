@@ -71,19 +71,19 @@ export const Contact = () => {
           <Col size={12} md={6} className="">
             <div className="contact-info">
               <a href="https://web.facebook.com/share/18DSvWncLX/?mibextid=wwXIfr&_rdc=1&_rdr">
-                <Facebook size={25} color="white" />
+                <Facebook className="contact-icon" size={25} color="white" />
                 <span>Facebook</span>
               </a>
               <a href="https://www.linkedin.com/in/nguyenhoanganhkiet">
-                <Linkedin size={25} color="white" />
+                <Linkedin className="contact-icon" size={25} color="white" />
                 <span>linkedin.com/in/nguyenhoanganhkiet</span>
               </a>
               <a href="https://github.com/h-akiet">
-                <Github size={25} color="white" />
+                <Github className="contact-icon" size={25} color="white" />
                 <span>github.com/h-akiet</span>
               </a>
               <a href="mailto:nguyenhoanganhkiettg2005@gmail.com">
-                <Envelope size={25} color="white" />
+                <Envelope className="contact-icon" size={25} color="white" />
                 <span>nguyenhoanganhkiettg2005@gmail.com</span>
               </a>
             </div>
@@ -94,16 +94,16 @@ export const Contact = () => {
                 <div>
                   <form onSubmit={handleSubmit}>
                     <Row>
-                      <Col size={12} sm={6} className="px-1">
+                      <Col size={12} md={6} className="px-1">
                         <input type="text" value={formDetails.firstName} placeholder="First Name" onChange={(e) => onFormUpdate('firstName', e.target.value)} />
                       </Col>
-                      <Col size={12} sm={6} className="px-1">
+                      <Col size={12} md={6} className="px-1">
                         <input type="text" value={formDetails.lasttName} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)} />
                       </Col>
-                      <Col size={12} sm={6} className="px-1">
+                      <Col size={12} md={6} className="px-1">
                         <input type="email" value={formDetails.email} placeholder="Email Address" onChange={(e) => onFormUpdate('email', e.target.value)} />
                       </Col>
-                      <Col size={12} sm={6} className="px-1">
+                      <Col size={12} md={6} className="px-1">
                         <input type="tel" value={formDetails.phone} placeholder="Phone No." onChange={(e) => onFormUpdate('phone', e.target.value)} />
                       </Col>
                       <Col size={12} className="px-1">

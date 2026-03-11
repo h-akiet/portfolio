@@ -37,8 +37,7 @@
         border: 1px solid transparent;
     }
 
-
-    @media(max-width: 768px) {
+    @media(max-width: 767px) {
         nav.navbar {
             padding: 0px 0;
             background-color: #121212;
@@ -71,8 +70,8 @@
         }
 
         .contact-info {
-            margin-bottom: 16px;
             padding: 0 13px;
+            margin: 16px auto;
         }
 
         .contact-info a {
@@ -118,83 +117,101 @@
         }
     }
 
-    .mb-5 {
-        margin-bottom: 0 !important;
+    @media(max-width: 377px) {
+        .contact-info a {
+            font-size: 12px;
+        }
+
+        .contact-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .contact form input,
+        .contact form textarea {
+            padding: 10px 18px;
+            font-size: 14px;
+        }
     }
+}
 
-    .banner {
-        padding: 110px 0 100px 0;
-    }
+.mb-5 {
+    margin-bottom: 0 !important;
+}
 
-
-    .proj-bx {
-        width: 108%;
-        padding: 15px;
-    }
-
-    .proj-title {
-        border-bottom: 1px solid #fff;
-        padding-bottom: 4px;
-
-    }
+.banner {
+    padding: 110px 0 100px 0;
+}
 
 
-    .proj-bx p {
-        margin: 14px 0 21px 9px;
-        letter-spacing: 0.8px;
-        line-height: 1.5rem;
-    }
+.proj-bx {
+    width: 108%;
+    padding: 15px;
+}
+
+.proj-title {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 4px;
+
+}
 
 
-    .proj-content {
-        text-align: left;
-        margin-top: 20px;
-    }
+.proj-bx p {
+    margin: 14px 0 21px 9px;
+    letter-spacing: 0.8px;
+    line-height: 1.5rem;
+}
 
-    .github-btn {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        text-decoration: none;
-        color: #fff;
-        justify-content: right;
-        margin-top: 8px;
-    }
 
-    .github-btn p {
-        margin: 20px 0 20px 0;
-        font-size: 1rem;
-    }
+.proj-content {
+    text-align: left;
+    margin-top: 20px;
+}
 
-    .tech-stack {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        overflow-x: visible;
-        overflow-y: visible;
-        white-space: normal;
-        margin: 0 8px 8px 8px;
+.github-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: #fff;
+    justify-content: right;
+    margin-top: 8px;
+}
 
-        mask-image: none;
-        -webkit-mask-image: none;
-    }
+.github-btn p {
+    margin: 20px 0 20px 0;
+    font-size: 1rem;
+}
 
-    .tech-stack::-webkit-scrollbar {
-        display: none;
-    }
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    overflow-x: visible;
+    overflow-y: visible;
+    white-space: normal;
+    margin: 0 8px 8px 8px;
 
-    .tech-badge {
-        font-size: 13px;
-        border-radius: 999px;
-        background: #0f1a2b;
-        border: 1px solid #1f2a40;
-        color: #8ab4f8;
-        flex-shrink: 0;
-        transition: all 0.3s ease;
-    }
+    mask-image: none;
+    -webkit-mask-image: none;
+}
 
-    .tech-badge:hover {
-        background: rgba(0, 153, 255, 0.2);
-        transform: translateY(-2px);
-    }
+.tech-stack::-webkit-scrollbar {
+    display: none;
+}
+
+.tech-badge {
+    font-size: 13px;
+    border-radius: 999px;
+    background: #0f1a2b;
+    border: 1px solid #1f2a40;
+    color: #8ab4f8;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    background: rgba(0, 153, 255, 0.2);
+    transform: translateY(-2px);
+}
 }

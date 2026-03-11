@@ -300,41 +300,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-color: transparent;
 }
 
-
-/* hero */
-.hero {
-  margin-top: 0;
-  padding: 260px 0 100px 0;
-  background-image: url('assets/img/banner-bg.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.hero__avatar {
-  position: relative;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.hero__avatar-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* about */
-.About {
-  width: 100%;
-}
-
-.About__description {
-  width: 75%;
-  text-align: justify;
-}
-
-/************ Banner Css ************/
+/* Banner */
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;

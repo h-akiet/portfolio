@@ -112,6 +112,20 @@
             display: block !important;
         }
 
+        .contact .message-bx {
+            padding: 8px 16px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            color: #fff;
+            width: 92%;
+            margin: auto;
+        }
+
+        .contact .message-bx h3 {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
         .footer img {
             width: 7%;
         }

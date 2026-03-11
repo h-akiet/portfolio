@@ -19,6 +19,13 @@ export const Project = () => {
             imgUrl: projImg1,
             githubUrl: "https://github.com/h-akiet/OneShop-Website.git",
         },
+         {
+            title: "Web API",
+            description: `A SOLID-based Web API for sales management featuring RESTful endpoints, EF Core integration for high-performance data handling, and Swagger UI for automated documentation and testing.`,
+            tech: [".Net", "C#", "SQL Server", "EF Core", "Solid"],
+            imgUrl: projImg3,
+            githubUrl: "https://github.com/h-akiet/E-Shop.git",
+        },
         {
             title: "Desktop App",
             description: `Implemented store operations including sales management, promotions, inventory tracking, and employee management...`,
@@ -26,13 +33,7 @@ export const Project = () => {
             imgUrl: projImg2,
             githubUrl: "https://github.com/h-akiet/OneShop-Website.git",
         },
-        {
-            title: "Web API",
-            description: `A SOLID-based Web API for sales management featuring RESTful endpoints, EF Core integration for high-performance data handling, and Swagger UI for automated documentation and testing.`,
-            tech: [".Net", "C#", "SQL Server", "EF Core", "Solid"],
-            imgUrl: projImg3,
-            githubUrl: "https://github.com/h-akiet/E-Shop.git",
-        },
+        
     ];
 
     return (

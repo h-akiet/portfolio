@@ -33,6 +33,15 @@ export const Project = () => {
             imgUrl: projImg2,
             githubUrl: "https://github.com/h-akiet/OneShop-Website.git",
         },
+
+        {
+            title: "8-Puzzle AI Solver",
+            description: `This educational project implements AI search strategies—from Uninformed (BFS, DFS) to Metaheuristics (Genetic, SA)—to solve the 8-puzzle. It serves as a benchmarking platform to evaluate and compare each algorithm's performance in terms of optimality, time complexity, and memory efficiency.`,
+            tech: ["Python", "Pygame"],
+            imgUrl: projImg2,
+            githubUrl: "https://github.com/h-akiet/8-Puzzle_AI_Solver.git",
+        },
+        
         
     ];
 

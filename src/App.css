@@ -132,7 +132,7 @@ p.danger {
 }
 
 .shake {
-  animation: shake 0.3s ease-in-out;
+  animation: shake 0.4s ease-in-out;
   border: 1px solid #ff4d4d !important;
 }
 
@@ -809,7 +809,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 500;
   font-size: 18px;
   letter-spacing: 0.8px;
-  transition: 0.3s ease-in-out;
+  transition: border-color 1s ease, box-shadow 1s ease;
 }
 
 .contact .px-1{

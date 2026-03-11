@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
@@ -31,6 +31,20 @@ export const Contact = () => {
     });
     if (error[category]) setError({ ...error, [category]: false });
   };
+
+  useEffect(() => {
+    const hasErrors = Object.keys(error).length > 0;
+
+    if (hasErrors) {
+      const timer = setTimeout(() => {
+        setError({}); 
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [error]);
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");

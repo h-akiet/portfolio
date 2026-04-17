@@ -1,55 +1,31 @@
-import { useState, useEffect } from "react";
+import { useCallback, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 import { Linkedin, Facebook, Github, Envelope, ArrowRightCircle } from 'react-bootstrap-icons';
-
+import { useFormValidation } from '../hooks';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
+const FORM_INITIAL_STATE = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  message: ''
+};
+
 export const Contact = () => {
-  const formInitialDetails = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    message: ''
-  }
-  const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState('Send');
   const [status, setStatus] = useState({});
-  const [error, setError] = useState({});
 
-  const onFormUpdate = (category, value) => {
-    setFormDetails({
-      ...formDetails,
-      [category]: value
-    });
-    if (error[category]) setError({ ...error, [category]: false });
-  };
-
-  useEffect(() => {
-    const hasErrors = Object.keys(error).length > 0;
-
-    if (hasErrors) {
-      const timer = setTimeout(() => {
-        setError({}); 
-      }, 2000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [error]);
-
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setButtonText("Sending...");
-    setError(null);
-    let tempErrors = {};
+  // Define validation function
+  const validateContactForm = useCallback((formDetails) => {
+    const tempErrors = {};
 
     if (!formDetails.firstName) tempErrors.firstName = "Vui lòng nhập họ";
     if (!formDetails.lastName) tempErrors.lastName = "Vui lòng nhập tên";
@@ -57,44 +33,64 @@ export const Contact = () => {
     if (!formDetails.phone) tempErrors.phone = "Số điện thoại là bắt buộc";
     if (!formDetails.message) tempErrors.message = "Tin nhắn không được để trống";
 
-    setError(tempErrors);
+    return tempErrors;
+  }, []);
 
-    if (Object.keys(tempErrors).length > 0) {
+  const { formDetails, error, onFormUpdate, validateForm, resetForm } = useFormValidation(FORM_INITIAL_STATE, validateContactForm);
+
+  const handleSubmit = useCallback(async (e) => {
+    e.preventDefault();
+    setButtonText("Sending...");
+    const isValid = validateForm();
+
+    if (!isValid) {
       setButtonText("Send");
       return;
     }
 
-    const { data, error: supabaseError } = await supabase
-      .from('Contact')
-      .insert([
-        {
-          firstname: formDetails.firstName,
-          lastname: formDetails.lastName,
-          email: formDetails.email,
-          phone: formDetails.phone,
-          message: formDetails.message
-        },
-      ])
-      .select();
+    try {
+      const { data, error: supabaseError } = await supabase
+        .from('Contact')
+        .insert([
+          {
+            firstname: formDetails.firstName,
+            lastname: formDetails.lastName,
+            email: formDetails.email,
+            phone: formDetails.phone,
+            message: formDetails.message
+          },
+        ])
+        .select();
 
-    setButtonText("Send");
-
-    if (supabaseError) {
-      setError(supabaseError.message);
-      console.error('Error inserting data:', supabaseError);
-      alert('Lỗi: ' + supabaseError.message);
-    } else {
-      console.log('Data inserted successfully:', data);
-
-      setFormDetails(formInitialDetails);
+      if (supabaseError) {
+        setStatus({
+          success: false,
+          message: 'Lỗi: ' + supabaseError.message
+        });
+        console.error('Error inserting data:', supabaseError);
+      } else {
+        setStatus({
+          success: true,
+          message: 'Message sent successfully!'
+        });
+        resetForm();
+      }
+    } catch (err) {
+      setStatus({
+        success: false,
+        message: 'An error occurred. Please try again.'
+      });
+      console.error('Error:', err);
+    } finally {
+      setButtonText("Send");
     }
-  };
+  }, [formDetails, validateForm, setStatus, resetForm]);
 
   return (
     <section className="contact" id="connect">
       <Container>
-        <Row className="align-items-center">
-          <h2 className="title">Get In Touch</h2>
+        <Row className="align-self-start">
+          <h2 className="title"><span className="text-grey">Contact</span> <span className="text-white">Me</span></h2>
           <Col size={12} md={6} className="">
             <div className="contact-info">
               <a href="https://web.facebook.com/share/18DSvWncLX/?mibextid=wwXIfr&_rdc=1&_rdr">
@@ -118,15 +114,14 @@ export const Contact = () => {
           <Col size={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) =>
-                <div className="message-bx">
-                  <h3 className="desktop-hide">Send your message</h3>
+                <div className="">
                   <form onSubmit={handleSubmit}>
                     <Row>
                       <Col size={12} md={6} className="px-1">
                         <input type="text" value={formDetails.firstName} className={error.firstName ? "shake" : ""} placeholder="First Name" onChange={(e) => onFormUpdate('firstName', e.target.value)} />
                       </Col>
                       <Col size={12} md={6} className="px-1">
-                        <input type="text" value={formDetails.lasttName} className={error.lastName ? "shake" : ""} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)} />
+                        <input type="text" value={formDetails.lastName} className={error.lastName ? "shake" : ""} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)} />
                       </Col>
                       <Col size={12} md={6} className="px-1">
                         <input type="email" value={formDetails.email} className={error.email ? "shake" : ""} placeholder="Email Address" onChange={(e) => onFormUpdate('email', e.target.value)} />

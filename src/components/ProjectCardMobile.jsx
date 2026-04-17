@@ -1,8 +1,9 @@
 import { Col, Row } from "react-bootstrap"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { memo } from 'react';
 
-export const ProjectCardMobile = ({
+const ProjectCardMobile = memo(({
   title,
   description,
   tech = [],
@@ -15,12 +16,12 @@ export const ProjectCardMobile = ({
         <div className="proj-bx">
           <div className="proj-content">
             <div className="proj-title">
-            <h4><strong>{title}</strong></h4>
+              <h4><strong>{title}</strong></h4>
             </div>
             <p>{description}</p>
             <div className="tech-stack">
-              {tech && tech.map((item, index) => (
-                <span key={index} className="tech-badge">
+              {tech && tech.map((item) => (
+                <span key={item} className="tech-badge">
                   {item}
                 </span>
               ))}
@@ -28,10 +29,17 @@ export const ProjectCardMobile = ({
             <a
               href={githubUrl}
               target="_blank"
-              rel="noopener noreferrer" className="github-btn"><FontAwesomeIcon icon={faGithub}/><p>Github</p></a>
+              rel="noopener noreferrer" className="github-btn">
+              <FontAwesomeIcon icon={faGithub} />
+              <p>Github</p>
+            </a>
           </div>
         </div>
       </Col>
     </Row>
   );
-};
+});
+
+ProjectCardMobile.displayName = 'ProjectCardMobile';
+
+export { ProjectCardMobile };

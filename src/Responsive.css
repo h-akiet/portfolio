@@ -9,6 +9,7 @@
 }
 
 @media (max-width: 1439px) {
+
     .proj-normal {
         display: none !important;
     }
@@ -36,121 +37,123 @@
         border-radius: 8px;
         border: 1px solid transparent;
     }
+}
 
-    @media(max-width: 767px) {
-        nav.navbar {
-            padding: 0px 0;
-            background-color: #121212;
-        }
-
-        .navbar-brand img {
-            width: 150%;
-        }
-
-        .banner-logo {
-            display: none;
-        }
-
-        .contact-img {
-            display: none;
-        }
-
-        .col-md-6 {
-            flex: 0 0 auto;
-            width: 100%;
-        }
-
-        .contact h2 {
-            text-align: center;
-        }
-
-        .contact form button {
-            display: block;
-            margin: 30px auto 0 auto;
-        }
-
-        .contact-info {
-            padding: 0 13px;
-            margin: 16px auto;
-        }
-
-        .contact-info a {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: #D9D9D9;
-            text-decoration: none;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 0 0 4px 0;
-            border-radius: 8px;
-            border: 1px solid transparent;
-        }
-
-        .contact form input,
-        .contact form textarea {
-            width: 90%;
-        }
-
-        .skills-grid-container {
-            grid-template-columns: 1fr;
-            padding-right: 10px;
-        }
-
-
-        .skills-grid-container::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        .skills-grid-container::-webkit-scrollbar-thumb {
-            background: #454e56;
-            border-radius: 10px;
-        }
-
-        .desktop-hide {
-            display: block !important;
-        }
-
-        .contact .message-bx {
-            padding: 8px 16px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 24px;
-            color: #fff;
-            width: 92%;
-            margin: auto;
-        }
-
-        .contact .message-bx h3 {
-            text-align: center;
-            margin-bottom: 16px;
-        }
-
-        .footer img {
-            width: 7%;
-        }
+/* Flattened media query - was nested, now standalone */
+@media (max-width: 767px) {
+    nav.navbar {
+        padding: 0px 0;
+        background-color: #121212;
     }
 
-    @media(max-width: 377px) {
-        .contact-info a {
-            font-size: 12px;
-        }
+    .navbar-brand img {
+        width: 150%;
+    }
 
-        .contact-icon {
-            width: 18px;
-            height: 18px;
-        }
+    .banner-logo {
+        display: none;
+    }
 
-        .contact form input,
-        .contact form textarea {
-            padding: 10px 18px;
-            font-size: 14px;
-        }
+    .contact-img {
+        display: none;
+    }
+
+    .col-md-6 {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .contact h2 {
+        text-align: center;
+    }
+
+    .contact form button {
+        display: block;
+        margin: 30px auto 0 auto;
+    }
+
+    .contact-info {
+        padding: 0 13px;
+        margin: 16px auto;
+    }
+
+    .contact-info a {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: #D9D9D9;
+        text-decoration: none;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 14px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0 0 4px 0;
+        border-radius: 8px;
+        border: 1px solid transparent;
+    }
+
+    .contact form input,
+    .contact form textarea {
+        width: 90%;
+    }
+
+    .desktop-hide {
+        display: block !important;
+    }
+
+    .skills-grid-container {
+        grid-template-columns: 1fr;
+        padding-right: 10px;
+    }
+
+
+    .skills-grid-container::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .skills-grid-container::-webkit-scrollbar-thumb {
+        background: #454e56;
+        border-radius: 10px;
+    }
+
+    .contact .message-bx {
+        padding: 8px 16px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 24px;
+        color: #fff;
+        width: 92%;
+        margin: auto;
+    }
+
+    .contact .message-bx h3 {
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    .footer img {
+        width: 7%;
+    }
+}
+
+/* Flattened media query - was nested, now standalone */
+@media (max-width: 377px) {
+    .contact-info a {
+        font-size: 12px;
+    }
+
+    .contact-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .contact form input,
+    .contact form textarea {
+        padding: 10px 18px;
+        font-size: 14px;
     }
 }
 
 .mb-5 {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
 }
 
 .banner {
@@ -159,7 +162,7 @@
 
 
 .proj-bx {
-    width: 108%;
+    width: 100%;
     padding: 15px;
 }
 
@@ -227,5 +230,4 @@
 .tech-badge:hover {
     background: rgba(0, 153, 255, 0.2);
     transform: translateY(-2px);
-}
 }

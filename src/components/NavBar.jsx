@@ -1,51 +1,57 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from '../assets/img/logo.png';
 import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
 import { HashLink } from 'react-router-hash-link';
-import {
-  BrowserRouter as Router
-} from "react-router-dom";
+import { useScrollDetection, useDebounce } from '../hooks';
+import { memo } from "react";
 
-export const NavBar = () => {
+const NavBarComponent = () => {
 
   const [activeLink, setActiveLink] = useState('home');
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    }
-
-    window.addEventListener("scroll", onScroll);
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [])
-
-  const onUpdateActiveLink = (value) => {
-    setActiveLink(value);
-  }
-
+  const scrolled = useScrollDetection(50);
   const [expanded, setExpanded] = useState(false);
   const navRef = useRef(null);
 
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (navRef.current && !navRef.current.contains(event.target)) {
-        setExpanded(false);
+  // Debounced function for detecting active section on scroll
+  const detectActiveSection = useCallback(useDebounce(() => {
+    const sections = ["home", "skills", "projects"];
+    let current = "";
+
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        // Kiểm tra xem phần tử có đang chiếm phần lớn khu vực viewport (khoảng 150px từ top)
+        if (rect.top <= 150 && rect.bottom >= 150) {
+          current = section;
+          break; // Tìm thấy rồi thì dừng vòng lặp ngay
+        }
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    
+    // Nếu tìm thấy section mới và nó khác với activeLink hiện tại
+    if (current && current !== activeLink) {
+      setActiveLink(current);
+    }
+  }, 100), [activeLink]); // activeLink ở đây giúp debounce nhận giá trị mới nhất
+
+  // Detect active section on scroll
+  useEffect(() => {
+    window.addEventListener("scroll", detectActiveSection, { passive: true });
+    
+    return () => {
+      window.removeEventListener("scroll", detectActiveSection);
+    };
+
+  }, [detectActiveSection]);
+
+  const handleNavClick = useCallback((section) => {
+    setActiveLink(section);
+  }, [activeLink]);
 
   return (
-    <Router>
       <Navbar 
       collapseOnSelect
       ref={navRef} 
@@ -61,9 +67,9 @@ export const NavBar = () => {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-              <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
-              <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
+              <Nav.Link href="#home" onClick={() => handleNavClick('home')} active={activeLink === 'home'} className={activeLink === 'home' ? 'navbar-link active' : 'navbar-link'}>Home</Nav.Link>
+              <Nav.Link href="#skills" onClick={() => handleNavClick('skills')} active={activeLink === 'skills'} className={activeLink === 'skills' ? 'navbar-link active' : 'navbar-link'}>Skills</Nav.Link>
+              <Nav.Link href="#projects" onClick={() => handleNavClick('projects')} active={activeLink === 'projects'} className={activeLink === 'projects' ? 'navbar-link active' : 'navbar-link'}>Projects</Nav.Link>
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
@@ -78,6 +84,8 @@ export const NavBar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </Router>
   )
 }
+
+export const NavBar = memo(NavBarComponent);
+NavBar.displayName = 'NavBar';

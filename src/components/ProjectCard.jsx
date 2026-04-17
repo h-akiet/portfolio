@@ -1,8 +1,9 @@
 import { Col, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { memo } from 'react';
 
-export const ProjectCard = ({
+const ProjectCard = memo(({
   title,
   description,
   tech = [],
@@ -21,8 +22,8 @@ export const ProjectCard = ({
 
             <p>{description}</p>
             <div className="tech-stack">
-              {tech && tech.map((item, index) => (
-                <span key={index} className="tech-badge">
+              {tech && tech.map((item) => (
+                <span key={item} className="tech-badge">
                   {item}
                 </span>
               ))}
@@ -39,4 +40,8 @@ export const ProjectCard = ({
       </Col>
     </Row>
   );
-};
+});
+
+ProjectCard.displayName = 'ProjectCard';
+
+export { ProjectCard };

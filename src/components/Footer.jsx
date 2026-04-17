@@ -1,10 +1,10 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { memo } from "react";
 import logo from "../assets/img/logo.png";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
 
-
-export const Footer = () => {
+const Footer = memo(() => {
     return (
         <footer className="footer">
             <Container>
@@ -14,8 +14,12 @@ export const Footer = () => {
                     </Col>
                     <Col size={12} sm={6} className="text-center text-sm-end">
                         <div className="social-icon">
-                            <a href="https://www.linkedin.com/in/nguyenhoanganhkiet"><img src={navIcon1} alt="" /></a>
-                            <a href="https://web.facebook.com/share/18DSvWncLX/?mibextid=wwXIfr&_rdc=1&_rdr"><img src={navIcon2} alt="" /></a>
+                            <a href="https://www.linkedin.com/in/nguyenhoanganhkiet" title="LinkedIn">
+                                <img src={navIcon1} alt="LinkedIn" />
+                            </a>
+                            <a href="https://web.facebook.com/share/18DSvWncLX/?mibextid=wwXIfr&_rdc=1&_rdr" title="Facebook">
+                                <img src={navIcon2} alt="Facebook" />
+                            </a>
                         </div>
                         <div className="email-footer">
                             <a href="mailto:nguyenhoanganhkiettg2005@gmail.com">nguyenhoanganhkiettg2005@gmail.com</a>
@@ -26,4 +30,8 @@ export const Footer = () => {
             </Container>
         </footer>
     )
-}
+});
+
+Footer.displayName = 'Footer';
+
+export { Footer };

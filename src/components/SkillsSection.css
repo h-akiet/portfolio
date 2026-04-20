@@ -1,0 +1,182 @@
+/* SkillsSection.css */
+.skills-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.skills-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #fff, #e0e7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.hexagon-grid {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: center;
+  justify-items: center;
+}
+
+/* Hexagon shape using CSS clip-path */
+.skill-hexagon {
+  width: 280px;
+  height: 320px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-hexagon:hover {
+  transform: translateY(-10px) scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hexagon-content {
+  text-align: center;
+  padding: 20px;
+  transform: rotate(0deg); /* Reset rotation for content */
+}
+
+.skill-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.skill-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.skill-description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.skill-tech {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+/* Zig-zag positioning */
+.hexagon-1 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.hexagon-2 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.hexagon-3 {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.hexagon-4 {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.hexagon-5 {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.hexagon-6 {
+  grid-column: 2;
+  grid-row: 4;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hexagon-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .skill-hexagon {
+    width: 250px;
+    height: 280px;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  /* Stack all hexagons vertically on mobile */
+  .hexagon-1,
+  .hexagon-2,
+  .hexagon-3,
+  .hexagon-4,
+  .hexagon-5,
+  .hexagon-6 {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-hexagon {
+    width: 200px;
+    height: 240px;
+  }
+
+  .hexagon-content {
+    padding: 15px;
+  }
+
+  .skill-icon {
+    font-size: 2.5rem;
+  }
+
+  .skill-title {
+    font-size: 1.2rem;
+  }
+
+  .skill-description {
+    font-size: 0.8rem;
+  }
+}

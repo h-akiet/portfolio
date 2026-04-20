@@ -21,6 +21,7 @@ function App() {
         <NavBar />
         <Banner onVisibilityChange={setIsBannerHidden} />
         <Skills />
+        <SkillsSection />
         <Project />
         <Contact />
         <FloatingLogo isVisible={isBannerHidden} />

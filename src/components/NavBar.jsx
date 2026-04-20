@@ -40,11 +40,9 @@ const NavBarComponent = () => {
   // Detect active section on scroll
   useEffect(() => {
     window.addEventListener("scroll", detectActiveSection, { passive: true });
-    
     return () => {
       window.removeEventListener("scroll", detectActiveSection);
     };
-
   }, [detectActiveSection]);
 
   const handleNavClick = useCallback((section) => {

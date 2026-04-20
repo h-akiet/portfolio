@@ -1,0 +1,241 @@
+/* ===================================
+   RESPONSIVE STYLES - OPTIMIZED
+   Mobile-first approach with clear breakpoints
+   =================================== */
+
+/* Base/Mobile Styles (< 768px) */
+.desktop-hide {
+    display: block !important;
+}
+
+.proj-normal {
+    display: none !important;
+}
+
+.proj-mobile {
+    display: flex !important;
+}
+
+/* ===================================
+   TABLET & UP (≥ 768px)
+   =================================== */
+@media (min-width: 768px) {
+    nav.navbar {
+        padding: inherit;
+        background-color: transparent;
+    }
+
+    .navbar-brand img {
+        width: auto;
+    }
+
+    .banner-logo {
+        display: block;
+    }
+
+    .contact-img {
+        display: block;
+    }
+
+    .col-md-6 {
+        flex: 0 0 50%;
+        width: 50%;
+    }
+
+    .contact h2 {
+        text-align: left;
+    }
+
+    .contact form button {
+        display: inline-block;
+        margin: 25px 0 0 0;
+    }
+
+    .contact-info {
+        margin-bottom: auto;
+        padding-left: inherit;
+    }
+
+    .desktop-hide {
+        display: none !important;
+    }
+
+    .skills-grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        padding-right: 0;
+    }
+
+    .contact .message-bx {
+        padding: inherit;
+        border: none;
+        border-radius: 0;
+        width: 100%;
+        margin: 0;
+    }
+
+    .contact .message-bx h3 {
+        text-align: left;
+        margin-bottom: inherit;
+    }
+
+    .footer img {
+        width: auto;
+    }
+}
+
+/* ===================================
+   DESKTOP (≥ 1440px)
+   =================================== */
+@media (min-width: 1440px) {
+    .proj-normal {
+        display: flex !important;
+    }
+
+    .proj-mobile {
+        display: none !important;
+    }
+}
+
+/* ===================================
+   SMALL MOBILE (< 378px)
+   =================================== */
+@media (max-width: 377px) {
+    .contact-info a {
+        font-size: 12px;
+    }
+
+    .contact-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .contact form input,
+    .contact form textarea {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
+
+/* ===================================
+   SHARED RESPONSIVE UTILITIES
+   =================================== */
+.mb-5 {
+    margin-bottom: 0;
+}
+
+.banner {
+    padding: 110px 0 100px 0;
+}
+
+.proj-bx {
+    width: 100%;
+    padding: 15px;
+}
+
+.proj-title {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 4px;
+}
+
+.proj-bx p {
+    margin: 14px 0 21px 9px;
+    letter-spacing: 0.8px;
+    line-height: 1.5rem;
+}
+
+.proj-content {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.github-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: #fff;
+    justify-content: right;
+    margin-top: 8px;
+}
+
+.github-btn p {
+    margin: 20px 0 20px 0;
+    font-size: 1rem;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    overflow-x: visible;
+    overflow-y: visible;
+    white-space: normal;
+    margin: 0 8px 8px 8px;
+    mask-image: none;
+    -webkit-mask-image: none;
+}
+
+.tech-stack::-webkit-scrollbar {
+    display: none;
+}
+
+.tech-badge {
+    font-size: 13px;
+    border-radius: 999px;
+    background: #0f1a2b;
+    border: 1px solid #1f2a40;
+    color: #8ab4f8;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    background: rgba(0, 153, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Shared Contact Info Styles */
+.contact-info {
+    margin-bottom: 16px;
+    padding-left: 0;
+}
+
+.contact-info a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #D9D9D9;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 0 4px 0;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+/* Mobile-specific Contact Styles */
+@media (max-width: 767px) {
+    .contact-info {
+        padding: 0 13px;
+        margin: 16px auto;
+    }
+
+    .contact-info a {
+        font-size: 13px;
+    }
+
+    .contact form input,
+    .contact form textarea {
+        width: 90%;
+    }
+
+    .skills-grid-container::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .skills-grid-container::-webkit-scrollbar-thumb {
+        background: #454e56;
+        border-radius: 10px;
+    }
+}
